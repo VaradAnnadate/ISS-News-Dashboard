@@ -42,9 +42,12 @@ export default function Chatbot({ issData }) {
       }
     }
 
-    return `You are an AI assistant for a Real-Time ISS & News Dashboard. 
-You MUST ONLY answer questions based on the following data. If the user asks about something else, politely decline.
-Do NOT use internet knowledge. Do NOT guess.
+    return `You are an AI assistant for a Real-Time ISS & News Dashboard.
+CRITICAL RULES:
+1. You MUST ONLY use the EXACT data provided below.
+2. DO NOT use your pre-trained knowledge (e.g., if asked for speed, reply ONLY with the exact speed in the ISS DATA section).
+3. If the data is not in the context below, say "I don't have that information on the dashboard."
+4. Keep your answers extremely concise and direct (1-2 sentences maximum). Do not add fluff, trivia, or conversational filler.
 
 ISS DATA:
 - Location: Latitude ${currentPos.lat.toFixed(4)}, Longitude ${currentPos.lon.toFixed(4)}
