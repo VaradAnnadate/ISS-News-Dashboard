@@ -28,7 +28,7 @@ export function useISSData() {
   const fetchISS = async () => {
     try {
       const now = Date.now();
-      const res = await fetch('http://api.open-notify.org/iss-now.json');
+      const res = await fetch('/api/iss/iss-now.json');
       const data = await res.json();
       
       if (data.message === 'success') {
@@ -66,6 +66,7 @@ export function useISSData() {
         lastFetchRef.current = now;
 
         try {
+          // Use HTTPS for openstreetmap
           const geoRes = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&zoom=10`);
           const geoData = await geoRes.json();
           if (geoData.address) {
@@ -85,7 +86,7 @@ export function useISSData() {
 
   const fetchAstros = async () => {
     try {
-      const res = await fetch('http://api.open-notify.org/astros.json');
+      const res = await fetch('/api/iss/astros.json');
       const data = await res.json();
       if (data.message === 'success') {
         setAstronauts({

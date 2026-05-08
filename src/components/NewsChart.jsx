@@ -22,7 +22,7 @@ export default function NewsChart({ news, onCategoryClick }) {
     <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col h-full">
       <h2 className="text-xl font-bold dark:text-white mb-6">News Distribution</h2>
       <div className="flex-grow min-h-[300px]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height={300}>
           <PieChart>
             <Pie
               data={data}
